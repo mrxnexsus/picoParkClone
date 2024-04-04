@@ -11,7 +11,7 @@
     <script src="libs/words.js"></script>
 
     <link rel="icon" href="./assets/imgs/favicon.png">
-    <title id="title">c Recreational Activities</title>
+    <title id="title">Microscopic Natural Area for Public Recreational Activities</title>
 
     <style>
         @font-face {
@@ -110,6 +110,7 @@
                     color:mainGame.fetchColor(),
                 })
                 addPlayerToMenu('Player2')
+                document.getElementById('controls').style.display = 'block';
                 return false;
             })();return false;">Add local co-op Player</button>
             <hr>
@@ -118,10 +119,8 @@
                 hostConnection.broadcast(JSON.stringify({
                     startGame:true,
                 }))
-                // Show controls after starting the game
-                document.getElementById('controls').style.display = 'block';
                 return false;
-            })();return false;">Start Game</button>
+            })();return false;">Stme</button>
         </div>
 
         <div id="join" style="display: none;">
