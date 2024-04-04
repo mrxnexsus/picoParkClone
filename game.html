@@ -11,7 +11,7 @@
     <script src="libs/words.js"></script>
 
     <link rel="icon" href="./assets/imgs/favicon.png">
-    <title id="title">Microscopic Natural Area for Public Recreational Activities</title>
+    <title id="title">tesss2</title>
 
     <style>
         @font-face {
@@ -29,21 +29,29 @@
             left: 0%;
             z-index: 10;
         }
+        .touch-controls {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: space-between;
+            width: 200px;
+        }
+        .touch-button {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-
-    <script>
-        var url = location.href,
-            urlData = url.split("?").splice(-1,1)
-
-        data = {}
-        urlData.forEach((e)=>{
-            data[e.split("=")[0]] = e.split("=")[1]
-        })
-
-        urlData = data
-    </script>
 
     <canvas id="c" style="display: none;"></canvas>
     <div class="overlay">
@@ -53,6 +61,13 @@
             return false;
         })();return false;">Restart Level</a>
     </div>
+    <div class="touch-controls">
+        <div class="touch-button" id="upButton">&#8593;</div>
+        <div class="touch-button" id="leftButton">&#8592;</div>
+        <div class="touch-button" id="rightButton">&#8594;</div>
+        <div class="touch-button" id="downButton">&#8595;</div>
+    </div>
+
     <script src="./src/multiplayer.js"></script>
     <script src="./src/buttons.js"></script>
     <script src="./src/door.js"></script>
@@ -198,6 +213,25 @@
                             }
 }
        
+    </script>
+
+    <script>
+        // Add event listeners for touch controls
+        document.getElementById("upButton").addEventListener("touchstart", function() {
+            // Code to move player up
+        });
+
+        document.getElementById("leftButton").addEventListener("touchstart", function() {
+            // Code to move player left
+        });
+
+        document.getElementById("rightButton").addEventListener("touchstart", function() {
+            // Code to move player right
+        });
+
+        document.getElementById("downButton").addEventListener("touchstart", function() {
+            // Code to move player down
+        });
     </script>
 
 </body>
