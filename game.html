@@ -11,7 +11,7 @@
     <script src="libs/words.js"></script>
 
     <link rel="icon" href="./assets/imgs/favicon.png">
-    <title id="title"> Activities</title>
+    <title id="title">c Recreational Activities</title>
 
     <style>
         @font-face {
@@ -112,23 +112,25 @@
                 addPlayerToMenu('Player2')
                 return false;
             })();return false;">Add local co-op Player</button>
-<hr>
+            <hr>
             <button onClick="(function(){
                 startGame()
                 hostConnection.broadcast(JSON.stringify({
                     startGame:true,
                 }))
+                // Show controls after starting the game
+                document.getElementById('controls').style.display = 'block';
                 return false;
             })();return false;">Start Game</button>
-            </div>
+        </div>
 
         <div id="join" style="display: none;">
             Waiting for host to start (maybe idk really)
         </div>
     </div>
 
-    <!-- Modify the button layout -->
-    <div id="controls">
+    <!-- Move the controls below the Start Game button -->
+    <div id="controls" style="display: none;">
         <button id="leftButton">Left</button>
         <button id="rightButton">Right</button>
         <button id="upButton">Up</button>
@@ -169,9 +171,6 @@
             mainGame.testInit()
             mainGame.initRender()
         }
-
-       
-
 
         window.onload=()=>{
             _loadFont("squareforced")
