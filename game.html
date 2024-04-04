@@ -29,17 +29,6 @@
             left: 0%;
             z-index: 10;
         }
-        .touch-button {
-            width: 50px;
-            height: 50px;
-            background-color: #ccc;
-            margin: 5px;
-            border-radius: 10px;
-            text-align: center;
-            line-height: 50px;
-            font-size: 18px;
-            cursor: pointer;
-        }
     </style>
 </head>
 <body>
@@ -116,7 +105,7 @@
             </div>
             <button onClick="(function(){
                 mainGame.playerhandler.addPlayer({
-                    controls:['touch-left','touch-right','touch-up','touch-down'], // Change controls to touch-based
+                    controls:['a','d','w','s'],
                     keys:keys,
                     color:mainGame.fetchColor(),
                 })
@@ -138,22 +127,15 @@
         </div>
     </div>
 
-    <div id="touchControls">
-        <div class="touch-button" id="leftButton">Left</div>
-        <div class="touch-button" id="rightButton">Right</div>
-        <div class="touch-button" id="upButton">Up</div>
-        <div class="touch-button" id="downButton">Down</div>
-    </div>
-
     <script>
         window.localfile = location.protocol=="file:"
         function initGame() {
             window.mainGame = new Game()
 
             var player1 = mainGame.playerhandler.addPlayer({
-                controls:["touch-left","touch-right","touch-up","touch-down"], // Change controls to touch-based
-                keys:keys,
-            }) 
+            controls:["arrowleft","arrowright","arrowup","arrowdown"],
+            keys:keys,
+        }) 
 
             window.hostConnection;window.clientConnection
             if (urlData.host) {hostConnection = new Host(mainGame);hostConnection.init()}
@@ -208,13 +190,13 @@
             }
         }
         function setLevel(lvl) {
-            mainGame.renderer.levelTransistion(lvl)
-            if (window.hostConnection) {
-                hostConnection.broadcast(JSON.stringify({
-                    setLevel:lvl,
-                }))
-            }
-        }
+    mainGame.renderer.levelTransistion(lvl)
+                            if (window.hostConnection) {
+                                hostConnection.broadcast(JSON.stringify({
+                                    setLevel:lvl,
+                                }))
+                            }
+}
        
     </script>
 
